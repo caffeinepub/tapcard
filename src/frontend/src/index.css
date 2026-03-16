@@ -1,0 +1,146 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.97 0.006 240;
+    --foreground: 0.12 0.018 255;
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.018 255;
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0.018 255;
+    --primary: 0.58 0.19 195;
+    --primary-foreground: 0.99 0 0;
+    --secondary: 0.93 0.008 240;
+    --secondary-foreground: 0.12 0.018 255;
+    --muted: 0.93 0.008 240;
+    --muted-foreground: 0.5 0.018 255;
+    --accent: 0.93 0.008 240;
+    --accent-foreground: 0.12 0.018 255;
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+    --border: 0.88 0.012 240;
+    --input: 0.88 0.012 240;
+    --ring: 0.58 0.19 195;
+    --radius: 0.75rem;
+    --chart-1: 0.58 0.19 195;
+    --chart-2: 0.65 0.18 170;
+    --chart-3: 0.72 0.16 230;
+    --chart-4: 0.62 0.2 25;
+    --chart-5: 0.78 0.14 155;
+    --sidebar: 0.98 0.004 240;
+    --sidebar-foreground: 0.12 0.018 255;
+    --sidebar-primary: 0.58 0.19 195;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.93 0.008 240;
+    --sidebar-accent-foreground: 0.12 0.018 255;
+    --sidebar-border: 0.88 0.012 240;
+    --sidebar-ring: 0.58 0.19 195;
+  }
+
+  .dark {
+    --background: 0.09 0.014 258;
+    --foreground: 0.94 0.008 240;
+    --card: 0.12 0.016 258;
+    --card-foreground: 0.94 0.008 240;
+    --popover: 0.12 0.016 258;
+    --popover-foreground: 0.94 0.008 240;
+    --primary: 0.68 0.19 195;
+    --primary-foreground: 0.09 0.014 258;
+    --secondary: 0.16 0.018 258;
+    --secondary-foreground: 0.94 0.008 240;
+    --muted: 0.16 0.018 258;
+    --muted-foreground: 0.55 0.02 258;
+    --accent: 0.16 0.018 258;
+    --accent-foreground: 0.94 0.008 240;
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+    --border: 0.22 0.018 258;
+    --input: 0.22 0.018 258;
+    --ring: 0.68 0.19 195;
+    --chart-1: 0.68 0.19 195;
+    --chart-2: 0.65 0.18 170;
+    --chart-3: 0.72 0.16 230;
+    --chart-4: 0.62 0.2 25;
+    --chart-5: 0.78 0.14 155;
+    --sidebar: 0.11 0.014 258;
+    --sidebar-foreground: 0.94 0.008 240;
+    --sidebar-primary: 0.68 0.19 195;
+    --sidebar-primary-foreground: 0.09 0.014 258;
+    --sidebar-accent: 0.16 0.018 258;
+    --sidebar-accent-foreground: 0.94 0.008 240;
+    --sidebar-border: 0.22 0.018 258;
+    --sidebar-ring: 0.68 0.19 195;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: linear-gradient(
+        oklch(var(--border) / 0.5) 1px,
+        transparent 1px
+      ), linear-gradient(90deg, oklch(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--primary)),
+      oklch(0.72 0.16 170)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-glow {
+    box-shadow: 0 0 0 1px oklch(var(--border)), 0 4px 24px
+      oklch(var(--primary) / 0.08), 0 1px 2px oklch(0 0 0 / 0.04);
+  }
+
+  .card-glow-hover {
+    transition: box-shadow 0.2s ease;
+  }
+
+  .card-glow-hover:hover {
+    box-shadow: 0 0 0 1px oklch(var(--primary) / 0.4), 0 8px 32px
+      oklch(var(--primary) / 0.15), 0 2px 4px oklch(0 0 0 / 0.06);
+  }
+}
